@@ -45,7 +45,7 @@ bot.on('message', async data => {
 
 		bot.sendMessage(
 			data.chat.id, 
-			`Limit: ${counter}\n` + '<b>Word:</b> ' + query[1] + '\n\n<b>Dictionary: </b>\n' + text,
+			`Remained limit: ${1000 - counter}\n` + '<b>Word:</b> ' + query[1] + '\n\n<b>Dictionary: </b>\n' + text,
 			{ 'parse_mode': 'html' }
 		)	
 	}
