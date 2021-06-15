@@ -1,0 +1,18 @@
+{
+  "dependencies": {
+    "node-fetch": "^2.6.1",
+    "node-telegram-bot-api": "^0.53.0",
+    "nodemon": "^2.0.7"
+  },
+  "name": "merriambot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start:dev": "nodemon index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Merriam Websterbot"
+}
