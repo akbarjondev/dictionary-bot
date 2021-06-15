@@ -12,6 +12,8 @@ bot.on('message', async data => {
 
 	if(data.text === '/start') {
 		bot.sendMessage(data.chat.id, 'Hi! Welcome to Merriam Webster Bot.\n\nYou can search any word. Cool yeah? :)\n\nCommands: `/search rocket`', { 'parse_mode': 'markdown' })
+		
+		return;
 	}
 
 	const query = data.text.split('/search ')
