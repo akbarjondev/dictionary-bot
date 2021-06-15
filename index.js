@@ -8,6 +8,15 @@ const token = config.TOKEN
 // Create a bot that uses 'polling' to fetch new updates
 const bot = new TelegramBot(token, {polling: true})
 
+// API limit counter
+let counter = 0
+
+setInterval(() => {
+
+	counter = 0
+
+}, 24 * 60 * 60 * 1000)
+
 bot.on('message', async data => {
 
 	if(data.text === '/start') {
@@ -22,6 +31,8 @@ bot.on('message', async data => {
 
 		const fetchData = await fetch(config.API_URL + query[1] + '?key=' + config.KEY)
 
+		counter++
+
 		const res = await fetchData.json()
 
 		let text = ''
@@ -34,7 +45,7 @@ bot.on('message', async data => {
 
 		bot.sendMessage(
 			data.chat.id, 
-			'<b>Word:</b> ' + query[1] + '\n\n<b>Dictionary: </b>\n' + text,
+			`Limit: ${counter}\n` + '<b>Word:</b> ' + query[1] + '\n\n<b>Dictionary: </b>\n' + text,
 			{ 'parse_mode': 'html' }
 		)	
 	}
